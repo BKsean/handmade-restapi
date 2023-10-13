@@ -1,0 +1,9 @@
+JPA 공부해야 이야좀 됨
+
+어노테이션 발리데이션 필요 의존성
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
+@JsonComponent --> 에러 시리얼라이져 등록시 사용한 어노테이션
