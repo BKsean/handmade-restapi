@@ -1,8 +1,10 @@
 package com.example.restwithtdd.event;
 
+import com.example.restwithtdd.accounts.Account;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -28,6 +30,8 @@ public class Event {
     private boolean free;
     private EventStatus eventStatus = EventStatus.DRAFT;
 
+    @ManyToOne
+    private Account manager;
     public void update(){
         // Update free
         if (this.basePrice == 0 && this.maxPrice == 0) {

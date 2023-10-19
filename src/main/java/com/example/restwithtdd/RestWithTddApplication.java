@@ -12,8 +12,4 @@ public class RestWithTddApplication {
         SpringApplication.run(RestWithTddApplication.class, args);
     }
 
-    @Bean
-    public ModelMapper modelMapper(){
-        return new ModelMapper();
-    }
 }

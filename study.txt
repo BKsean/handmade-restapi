@@ -7,3 +7,27 @@ JPA 공부해야 이야좀 됨
         </dependency>
 
 @JsonComponent --> 에러 시리얼라이져 등록시 사용한 어노테이션
+
+hateos 링크정보를 추가하기위해 EventResource 클래스를 추가함
+EntityModel<Event>를 상속하여 생성자를 다음과 같이 구현했다.
+public EventResource(Event content, Link... links) {
+        super(content, List.of(links));
+        add(linkTo(EventController.class).slash(content.getId()).withSelfRel());
+    }
+
+
+각 이벤트 비즈니스 로직을 구현하고 테스트 케이스를 작성함
+
+스프링 시큐리ㅇ티는 크게 두가지기능
+웹시큐리티 : 웹요청에다가 보안인증 filter기반
+메서드시큐리티 : 웹과 상관없이 어던 메서드가 호출되었을대 보안 인증 (AOP?)
+시큐리티로 Account 도메인으로 데이터를 저장하고 인증하는 방법
+* 버전이 맞지 않고 슥 지나가기 때문에 추가로 강의를 듣거나 공부가 필요할것으로 보임 처음에 대약적인 구조 설명하는데 듣고 이해하는게 좋아보임임
+
+인증서버 설정(스프링 시큐리티 Oauth2)
+이 설정이 완료되면 인증토큰 발급이 가능해진다.  인증 토큰 및 리프래쉬 토큰 발급
+
+리소스서버 설정 위의 설정한 Oauth2서버와 연동
+외부요청이 리소스에 접근할 때 인증이 필요하다면 Oauth2인증 서버에서 토큰이 유효한지 확인
+
+
